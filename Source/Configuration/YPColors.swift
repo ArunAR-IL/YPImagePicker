@@ -21,7 +21,7 @@ public struct YPColors {
     
     /// A color for circle for selected items in multiple selection
     /// Default is nil, which takes tintColor.
-    public var multipleItemsSelectedCircleColor: UIColor?
+    public var multipleItemsSelectedCircleColor: UIColor = UIColor(r: 10, g: 120, b: 254)
     
     /// The background color of the bottom of photo and video screens.
     public var photoVideoScreenBackgroundColor: UIColor = .offWhiteOrBlack
@@ -82,5 +82,5 @@ public struct YPColors {
     /// The color of the Album's left and right items color
     public var albumTintColor: UIColor = .ypLabel
     /// The color of the Album's title color
-    public var albumTitleColor: UIColor = .ypLabel
+    public var albumTitleColor: UIColor = UIColor.white
 }

@@ -104,7 +104,7 @@ final class YPAssetViewContainer: UIView {
     @objc public func squareCropButtonTapped() {
         let z = zoomableView.zoomScale
         shouldCropToSquare = (z >= 1 && z < zoomableView.squaredZoomScale)
-        zoomableView.fitImage(shouldCropToSquare, animated: true)
+        zoomableView.fitImage(shouldCropToSquare, animated: false)
     }
 
     /// Update only UI of square crop button.

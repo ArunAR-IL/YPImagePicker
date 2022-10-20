@@ -114,7 +114,21 @@ internal final class YPLibraryVC: UIViewController, YPPermissionCheckable {
             strongSelf.updateCropInfo()
         }
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        
+        if #available(iOS 13.0, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+            appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+
+            navigationItem.standardAppearance = appearance
+            navigationItem.scrollEdgeAppearance = appearance
+        } else {
+            // Fallback on earlier versions
+        }
+    }
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -138,6 +152,7 @@ internal final class YPLibraryVC: UIViewController, YPPermissionCheckable {
         if YPConfig.library.minNumberOfItems > 1 {
             multipleSelectionButtonTapped()
         }
+        squareCropButtonTapped()
     }
     
     public override func viewWillDisappear(_ animated: Bool) {
@@ -294,6 +309,8 @@ internal final class YPLibraryVC: UIViewController, YPPermissionCheckable {
             if !isLowResIntermediaryImage {
                 self.v.hideLoader()
                 self.delegate?.libraryViewFinishedLoading()
+                self.squareCropButtonTapped()
+                
             }
         }
         

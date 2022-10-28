@@ -152,7 +152,7 @@ internal final class YPLibraryVC: UIViewController, YPPermissionCheckable {
         if YPConfig.library.minNumberOfItems > 1 {
             multipleSelectionButtonTapped()
         }
-        squareCropButtonTapped()
+      //  squareCropButtonTapped()
     }
     
     public override func viewWillDisappear(_ animated: Bool) {
